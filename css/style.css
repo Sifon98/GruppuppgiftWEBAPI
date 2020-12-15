@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(250, 246, 215);
+}
+
+hr {
+  border-top: 2px solid black;
+}
+
+.adminbtn {
+  float: right;
+  text-decoration: none;
+}

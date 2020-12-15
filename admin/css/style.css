@@ -1,0 +1,66 @@
+/* body {
+  background-color: rgb(215, 250, 250);
+}
+
+hr {
+  border-top: 2px solid black;
+}
+
+.adminbtn {
+  float: right;
+  text-decoration: none;
+}
+
+table {
+  background-color: white;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+table tr th {
+  border: 1px solid black;
+}
+
+table tr td {
+  border: 1px solid black;
+} */
+
+/* .test {
+  width: 60%;
+} */
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+.manage-posts-list {
+  width: 100vw;
+}
+
+.table-row {
+  width: 20%;
+}
+
+tbody {
+  width: 100%;
+}
