@@ -16,7 +16,7 @@ async function fetchAllPosts() {
       postsHTML += `<td class="table-row">${post.author}</td>`;
       postsHTML += `<td class="table-row">${post.date}</td>`;
       postsHTML += `<td class="table-row">${post.tags}</td>`;
-      postsHTML += `<td class="table-row"><a href="update-post.html?id=${post["_id"]}&content=${post["content"]}">Update</a> | <a href="#" class="delete-post-btn" data-id="${post["_id"]}">Delete</a> </td>`;
+      postsHTML += `<td class="table-row"><a href="update-post.html?id=${post["_id"]}">Update</a> | <a href="#" class="delete-post-btn" data-id="${post["_id"]}">Delete</a> </td>`;
       // postsHTML += `<a href="update-post.html?id=${post["_id"]}&content=${post["content"]}">Update</a> | `;
       // postsHTML += `<a href="#" class="delete-post-btn" data-id="${post["_id"]}">Delete</a> `;
 

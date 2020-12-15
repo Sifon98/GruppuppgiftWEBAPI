@@ -6,6 +6,26 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <form class="update-post-form">
+      <label>title:</label>
+      <input id="title" name="title" />
+      <label>author:</label>
+      <input id="author" class="author" name="author" />
+      <label>content:</label>
+      <input id="content" name="content" />
+      <label>tags:</label>
+      <select name="tags" multiple>
+        <option class="tags" value="Ekonomi">Ekonomi</option>
+        <option class="tags" value="Politik">Politik</option>
+        <option class="tags" value="Sport">Sport</option>
+        <option class="tags" value="Mat">Mat</option>
+        <option class="tags" value="Bilar">Bilar</option>
+        <option class="tags" value="Resa">Resa</option>
+      </select>
+      <!-- <button class="createPost">Create</button> -->
+      <input type="submit" value="Create" />
+    </form>
+    <a href="index.html">Go back</a>
     <script src="js/update-post.js"></script>
   </body>
 </html>
