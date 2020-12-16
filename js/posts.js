@@ -1,10 +1,8 @@
-// const { deepStrictEqual } = require("assert");
-// const { stderr } = require("process");
-
 window.onload = function () {
   fetchAllPosts();
 };
 
+// Get all posts from the server and display them
 async function fetchAllPosts() {
   try {
     let response = await fetch("http://localhost:3000/posts");
@@ -12,25 +10,21 @@ async function fetchAllPosts() {
 
     let postsHTML = "";
     for (let post of data.reverse()) {
-      console.log(post);
       postsHTML += `<li class="list-group-item">`;
 
       var str = post.content;
-      var res = str.substring(0, 99); //get first 100 chars
+      var res = str.substring(0, 99); // Get first 100 chars
 
-      postsHTML += `<div>${post.title}</div>`;
-      postsHTML += `<div style="float: left">${post.author} | </div>`;
-      postsHTML += `<div>${post.date}</div>`;
-      postsHTML += `<div>${post.tags}</div>`;
-      postsHTML += `<div>${res}</div>`;
-      console.log(res.length);
+      var readMore = "";
+      
+      // Make sure only 100 Chars can be displayed, and add button
       if (res.length === 99)
-        postsHTML += `<a href="post.html?id=${post["_id"]}">read more...</a>`;
+        readMore = `<a href="post.html?id=${post["_id"]}">...read more</a>`;
 
-      postsHTML += `<div>`;
-      // postsHTML += `<a href="update-post.html?id=${post["_id"]}&content=${post["content"]}">Update</a> | `;
-      // postsHTML += `<a href="#" class="delete-post-btn" data-id="${post["_id"]}">Delete</a> `;
-      postsHTML += `</div>`;
+      postsHTML += `<h2>${post.title}</h2>`;
+      postsHTML += `<p><i>${post.author} | ${post.date}</i></p>`;
+      postsHTML += `<p><b>Tags:</b> ${post.tags}</p>`;
+      postsHTML += `<p>${res} ${readMore}</p>`;
 
       postsHTML += `</li>`;
     }
@@ -40,5 +34,3 @@ async function fetchAllPosts() {
     console.error(err);
   }
 }
-
-// const postList = document.querySelector(".posts-list");

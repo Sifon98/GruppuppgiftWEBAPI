@@ -1,11 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
-const currentContent = urlParams.get("id");
 const postId = urlParams.get("id");
-
-console.log(postId);
+const form = document.querySelector(".update-post-form")
 
 const tags = document.querySelectorAll(".tags");
-console.log(tags);
 
 window.onload = function () {
   fetchPost();
@@ -15,46 +12,71 @@ async function fetchPost() {
   try {
     let response = await fetch(`http://localhost:3000/posts/${postId}`);
     let data = await response.json();
-
-    let postsHTML = "";
-    console.log(data);
-
+ 
+    // Appends post data to inputs
     document.getElementById("title").value = data.title;
     document.getElementById("author").value = data.author;
     document.getElementById("content").value = data.content;
-    // postsHTML += `<li class="list-group-item">`;
-    console.log(data.tags[0]);
-    console.log(tags[0].value);
-    console.log("-----");
-    for (let tag of tags) {
-      console.log(tag);
+
+
+    // Appends post tags to tags list
+    for(let i = 0; i < tags.length; i++) {
+      for (let x = 0; x < data.tags.length; x++) {
+        if(tags[i].value === data.tags[x]) {
+          tags[i].selected = true;
+        }
+      }
     }
 
-    console.log(tags.every((e) => data.tags.includes(e)));
-    // var str = post.content;
-    // var res = str.substring(0, 99); //get first 100 chars
+    // console.log(...tags)
+    let tagList = [];
+    for(let tag of tags) tagList.push(tag.value)
+    // // console.log(tags[0].value)
+    // // const tagsList = [...tags]
+    console.log(tagList)
 
-    // postsHTML += `<div>${data.title}</div>`;
-    // postsHTML += `<div style="float: left">${data.author} | </div>`;
-    // postsHTML += `<div>${data.date}</div>`;
-    // postsHTML += `<div>${data.tags}</div>`;
-    // postsHTML += `<div>${data.content}</div>`;
-    // console.log(res.length);
-    // if (res.length === 99)
-    //   postsHTML += `<a href="post.html?id=${post["_id"]}">read more...</a>`;
+    // console.log(tags)
+    const tagsArr = Array.prototype.slice.call(tags)
+    console.log(tagsArr)
+    // console.log(tagsArr[0].value)
+    // console.log(data.tags[0])
+    tagsArr.map(e => console.log(data.tags))
 
-    // postsHTML += `<div>`;
-    // postsHTML += `<a href="update-post.html?id=${post["_id"]}&content=${post["content"]}">Update</a> | `;
-    // postsHTML += `<a href="#" class="delete-post-btn" data-id="${post["_id"]}">Delete</a> `;
-    // postsHTML += `</div>`;
-
-    // postsHTML += `</li>`;
-
-    for (let tag of tags)
-      document.querySelector(".the-post").innerHTML = postsHTML;
-  } catch (err) {
-    console.error(err);
+} catch (message) {
+    throw new Error(message);
   }
 }
 
-// const postList = document.querySelector(".the-post");
+
+
+form.addEventListener("submit", updatePost);
+
+async function updatePost(e) {
+  e.preventDefault();
+  
+
+  let formData = new FormData(this);
+
+
+  let object = {
+    // content: document.getElementById('content-textarea').value
+    title: formData.get("title"),
+    content: formData.get("content"),
+    author: formData.get("author"),
+    tags: formData.getAll("tags"),
+  };
+
+  try {
+    await fetch(`http://localhost:3000/posts/${postId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(object), 
+    });
+
+    window.location.replace("index.html"); 
+  } catch (message) {
+    throw new Error(message);
+  }
+}

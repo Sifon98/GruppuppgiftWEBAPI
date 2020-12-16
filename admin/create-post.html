@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="rows">
     <form class="create-post-form">
       <label>title:</label>
       <input name="title" />
       <label>author:</label>
       <input name="author" />
       <label>content:</label>
-      <input name="content" />
+      <textarea name="content"></textarea>
       <label>tags:</label>
       <select name="tags" multiple>
         <option value="Ekonomi">Ekonomi</option>
@@ -26,6 +28,8 @@
       <input type="submit" value="Create" />
     </form>
     <a href="index.html">Go back</a>
+    </div>
+    </div>
     <script src="js/create-post.js"></script>
   </body>
 </html>

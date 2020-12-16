@@ -1,38 +1,23 @@
-const urlParams = new URLSearchParams(window.location.search);
-const currentContent = urlParams.get("id");
-const postId = urlParams.get("id");
-
-console.log(postId);
+const urlParams = new URLSearchParams(window.location.search);  // Get URL search parameters                  
+const postId = urlParams.get("id");                             // Find search parameter "id"
 
 window.onload = function () {
   fetchAllPosts();
 };
 
+//Get a specified blog post och display it
 async function fetchAllPosts() {
   try {
     let response = await fetch(`http://localhost:3000/posts/${postId}`);
     let data = await response.json();
 
     let postsHTML = "";
-    console.log(data);
     postsHTML += `<li class="list-group-item">`;
 
-    // var str = post.content;
-    // var res = str.substring(0, 99); //get first 100 chars
-
-    postsHTML += `<div>${data.title}</div>`;
-    postsHTML += `<div style="float: left">${data.author} | </div>`;
-    postsHTML += `<div>${data.date}</div>`;
-    postsHTML += `<div>${data.tags}</div>`;
-    postsHTML += `<div>${data.content}</div>`;
-    // console.log(res.length);
-    // if (res.length === 99)
-    //   postsHTML += `<a href="post.html?id=${post["_id"]}">read more...</a>`;
-
-    postsHTML += `<div>`;
-    // postsHTML += `<a href="update-post.html?id=${post["_id"]}&content=${post["content"]}">Update</a> | `;
-    // postsHTML += `<a href="#" class="delete-post-btn" data-id="${post["_id"]}">Delete</a> `;
-    postsHTML += `</div>`;
+    postsHTML += `<h2>${data.title}</h2>`;
+    postsHTML += `<p><i>${data.author} | ${data.date}</i></p>`;
+    postsHTML += `<p><b>Tags: </b>${data.tags}</p>`;
+    postsHTML += `<p>${data.content}</p>`;
 
     postsHTML += `</li>`;
 
@@ -41,5 +26,3 @@ async function fetchAllPosts() {
     console.error(err);
   }
 }
-
-// const postList = document.querySelector(".the-post");
