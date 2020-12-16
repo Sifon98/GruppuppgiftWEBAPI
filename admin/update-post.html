@@ -6,26 +6,42 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <form class="update-post-form">
-      <label>title:</label>
-      <input id="title" name="title" />
-      <label>author:</label>
-      <input id="author" class="author" name="author" />
-      <label>content:</label>
-      <textarea id="content" name="content"></textarea>
-      <label>tags:</label>
-      <select name="tags" multiple>
-        <option class="tags" value="Ekonomi">Ekonomi</option>
-        <option class="tags" value="Politik">Politik</option>
-        <option class="tags" value="Sport">Sport</option>
-        <option class="tags" value="Mat">Mat</option>
-        <option class="tags" value="Bilar">Bilar</option>
-        <option class="tags" value="Resa">Resa</option>
-      </select>
-      <!-- <button class="createPost">Create</button> -->
-      <input type="submit" value="Update" />
-    </form>
-    <a href="index.html">Go back</a>
+    <div class="container">
+      <div class="rows">
+        <h1>Update Post</h1>
+        <form class="update-post-form">
+          <div class="input-box">
+            <label>title:</label>
+            <input id="title" name="title" />
+          </div>
+          <div class="input-box">
+            <label>author:</label>
+            <input id="author" class="author" name="author" />
+          </div>
+          <div class="input-box">
+            <label>content:</label>
+            <textarea id="content" name="content"></textarea>
+          </div>
+          <div class="input-box">
+            <label>tags:</label>
+            <select name="tags" multiple>
+              <option class="tags" value="Ekonomi">Ekonomi</option>
+              <option class="tags" value="Politik">Politik</option>
+              <option class="tags" value="Sport">Sport</option>
+              <option class="tags" value="Mat">Mat</option>
+              <option class="tags" value="Bilar">Bilar</option>
+              <option class="tags" value="Resa">Resa</option>
+            </select>
+          </div>
+          <!-- <button class="createPost">Create</button> -->
+          <div class="create-button">
+            <input type="submit" value="Update" />
+          </div>
+          <!-- <input type="submit" value="Update" /> -->
+        </form>
+        <a href="index.html">Go back</a>
+      </div>
+    </div>
     <script src="js/update-post.js"></script>
   </body>
 </html>

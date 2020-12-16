@@ -3,32 +3,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div class="container">
       <div class="rows">
-    <form class="create-post-form">
-      <label>title:</label>
-      <input name="title" />
-      <label>author:</label>
-      <input name="author" />
-      <label>content:</label>
-      <textarea name="content"></textarea>
-      <label>tags:</label>
-      <select name="tags" multiple>
-        <option value="Ekonomi">Ekonomi</option>
-        <option value="Politik">Politik</option>
-        <option value="Sport">Sport</option>
-        <option value="Mat">Mat</option>
-        <option value="Bilar">Bilar</option>
-        <option value="Resa">Resa</option>
-      </select>
-      <!-- <button class="createPost">Create</button> -->
-      <input type="submit" value="Create" />
-    </form>
-    <a href="index.html">Go back</a>
-    </div>
+        <h1>Create Post</h1>
+        <form class="create-post-form">
+          <div class="input-box">
+            <label>title</label>
+            <input name="title" />
+          </div>
+          <div class="input-box">
+            <label>author</label>
+            <input name="author" />
+          </div>
+          <div class="input-box">
+            <label>content</label>
+            <textarea name="content"></textarea>
+          </div>
+          <div class="input-box">
+            <label>tags</label>
+            <select name="tags" multiple>
+              <option value="Ekonomi">Ekonomi</option>
+              <option value="Politik">Politik</option>
+              <option value="Sport">Sport</option>
+              <option value="Mat">Mat</option>
+              <option value="Bilar">Bilar</option>
+              <option value="Resa">Resa</option>
+            </select>
+          </div>
+          <!-- <button class="createPost">Create</button> -->
+          <div class="create-button">
+            <input type="submit" value="Create" />
+          </div>
+        </form>
+        <a href="index.html">Go back</a>
+      </div>
     </div>
     <script src="js/create-post.js"></script>
   </body>

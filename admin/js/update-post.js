@@ -18,7 +18,6 @@ async function fetchPost() {
     document.getElementById("author").value = data.author;
     document.getElementById("content").value = data.content;
 
-
     // Appends post tags to tags list
     for(let i = 0; i < tags.length; i++) {
       for (let x = 0; x < data.tags.length; x++) {
@@ -27,20 +26,6 @@ async function fetchPost() {
         }
       }
     }
-
-    // console.log(...tags)
-    let tagList = [];
-    for(let tag of tags) tagList.push(tag.value)
-    // // console.log(tags[0].value)
-    // // const tagsList = [...tags]
-    console.log(tagList)
-
-    // console.log(tags)
-    const tagsArr = Array.prototype.slice.call(tags)
-    console.log(tagsArr)
-    // console.log(tagsArr[0].value)
-    // console.log(data.tags[0])
-    tagsArr.map(e => console.log(data.tags))
 
 } catch (message) {
     throw new Error(message);

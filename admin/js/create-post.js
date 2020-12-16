@@ -14,7 +14,7 @@ async function createPun(e) {
     tags: formData.getAll("tags"),
   };
   
-    // Post new form to server 
+    // Post new form to Server
   try { 
     await fetch("http://localhost:3000/posts", {
       method: "POST", 
